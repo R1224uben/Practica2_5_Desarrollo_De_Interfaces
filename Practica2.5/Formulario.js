@@ -1,40 +1,44 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  const $ = id => document.getElementById(id);
-  const form = $("formMatricula"), nombre = $("nombre"), msgNombre = $("msgNombre");
-  const discoteca = $("discoteca"), msgDiscoteca = $("msgDiscoteca");
+  // Elementos 
+  const form = document.getElementById("formMatricula");
+  const nombre = document.getElementById("nombre");
+  const msgNombre = document.getElementById("msgNombre");
+  const discoteca = document.getElementById("discoteca");
+  const msgDiscoteca = document.getElementById("msgDiscoteca");
 
-  const setMsg = (el, msgEl, ok, msg) => {
-    el.className = ok ? "campo-ok" : "campo-error";
-    msgEl.className = `msg ${ok ? "msg-ok" : "msg-error"}`;
-    msgEl.textContent = msg;
-  };
+  // letras, tildes, espacios (mín 3 chars)
+  const comprobar = /^[A-Za-zÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÑñ\s]{3,}$/;
 
-  // Validar nombre
-  const validarNombre = () => {
-    const val = nombre.value.trim();
-    if (!val) return false;
-    const ok = /^[A-Za-zÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÑñ\s]{3,}$/.test(val);
-    setMsg(nombre, msgNombre, ok, ok ? "Nombre válido" : "Solo letras, mínimo 3 caracteres");
-    return ok;
-  };
+  // Validar nombre 
+  nombre.addEventListener("input", () => {
+    const valor = nombre.value.trim();
+    const ok = valor && comprobar.test(valor);
+    
+    nombre.className = ok ? "campo-ok" : "campo-error";
+    msgNombre.className = `msg ${ok ? "msg-ok" : "msg-error"}`;
+    msgNombre.textContent = ok ? "Nombre válido" : "Solo letras y espacios, mínimo 3 caracteres";
+  });
 
-  // Validar discoteca
-  const validarDiscoteca = () => {
+  // Validar discoteca 
+  discoteca.addEventListener("change", () => {
     const ok = discoteca.value !== "";
-    setMsg(discoteca, msgDiscoteca, ok, ok ? "Discoteca válida" : "Selecciona una discoteca");
-    return ok;
-  };
+    
+    discoteca.className = ok ? "campo-ok" : "campo-error";
+    msgDiscoteca.className = `msg ${ok ? "msg-ok" : "msg-error"}`;
+    msgDiscoteca.textContent = ok ? "Discoteca válida" : "Selecciona una discoteca";
+  });
 
-  //Validar al escribir
-  nombre.addEventListener("input", validarNombre);
-  discoteca.addEventListener("change", validarDiscoteca);
-
-  // Comprobración de campos
-  form.addEventListener("submit", e => {
-    if (!validarNombre() || !validarDiscoteca()) {
+  // Bloquear envío
+  form.addEventListener("submit", (e) => {
+    const valorNombre = nombre.value.trim();
+    const nombreOk = valorNombre && comprobar.test(valorNombre);
+    const discotecaOk = discoteca.value !== "";
+    
+    if (!nombreOk || !discotecaOk) {
       e.preventDefault();
-      alert("Completa nombre y discoteca primero");
+      (nombreOk ? discoteca : nombre).focus();
     }
   });
 });
