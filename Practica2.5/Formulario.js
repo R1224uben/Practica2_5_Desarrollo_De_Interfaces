@@ -42,3 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+const tipoEntrada = document.querySelector(".radio-group");
+const msgEntrada = document.getElementById("tipoEntrada");
+
+tipoEntrada.addEventListener("change",() =>{
+      msgEntrada.textContent = "Tipo de entrada seleccionada";
+});
