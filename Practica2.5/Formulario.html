@@ -9,31 +9,35 @@
 <body>
     
   <main class="card">
+
     <h1 id="titulo">Entrada discoteca</h1>
 
     <p id="status" aria-live="polite"></p>
 
     <form id="formMatricula">
 
+      <!--CAMPO DE NOMBRE Y APELLIDO-->
       <label>
         Nombre y apellidos
         <input id="nombre" name="nombre" type="text" autocomplete="name" />
       </label>
       <small class="msg" id="msgNombre"></small>
 
+      <!--CAMPO DE NUMERO DE TELEFONO-->
       <label>
         Número de teléfono
         <input placeholder="+34 600 00 00 00" id="numTelf" name="numTelf" type="number"/>
       </label>
       <small class="msg" id="msgEdad"></small>
 
+      <!--CAMPO DE EMAIL-->
       <label>
         Email
         <input id="email" name="email" type="email" autocomplete="email" />
       </label>
       <small class="msg" id="msgEmail"></small>
 
-      <!-- SELECT DISCOTECAS -->
+      <!--CAMPO DE OPCIONES DISCOTECAS -->
       <label>
         Discoteca
         <select id="discoteca" name="discoteca">
@@ -47,19 +51,54 @@
       </label>
       <small class="msg" id="msgDiscoteca"></small>
 
+      <!--CAMPO OBSERVACIONES-->
       <label>
         Observaciones
         <textarea id="obs" name="obs" rows="3"></textarea>
       </label>
 
-      <section>
-        <label class="fila2">
-          <input id="acepto" type="checkbox" />
-          Acepto condiciones
-        </label>
+      <!--CAMPO DE TIPO DE ENTRADA-->
+      <section class="radio-section">    
+        <fieldset class="radio-group">
+          <legend>Tipo de entrada</legend>
+
+          <label class="radio-card">
+            <input type="radio" name="entrada" value="15">
+            <span>
+              <strong>1 copa</strong>
+              <small>-- 15€</small>
+            </span>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="entrada" value="20">
+            <span>
+              <strong>2 copas</strong>
+              <small>-- 20€</small>
+            </span>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="entrada" value="100">
+            <span>
+              <strong>Botella + VIP</strong>
+              <small>-- 100€</small>
+            </span>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="entrada" value="150">
+            <span>
+              <strong>Botella Premium + VIP</strong>
+              <small>-- 150€</small>
+            </span>
+          </label>
+
+        </fieldset>
         <small class="msg" id="tipoEntrada"></small>
       </section>
 
+    <!--CAMPO DE BOTONES-->
       <div class="botonera">
         <button id="btnEnviar" type="submit">Enviar</button>
         <button id="btnReset" type="reset">Limpiar</button>
