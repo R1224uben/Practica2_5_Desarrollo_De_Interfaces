@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Entrada discoteca</title>
+  <link rel="stylesheet" href="Formulario.css" />
+</head>
+<body>
+    
+  <main class="card">
+    <h1 id="titulo">Entrada discoteca</h1>
+
+    <p id="status" aria-live="polite"></p>
+
+    <form id="formMatricula">
+
+      <label>
+        Nombre y apellidos
+        <input id="nombre" name="nombre" type="text" autocomplete="name" />
+      </label>
+      <small class="msg" id="msgNombre"></small>
+
+      <label>
+        Número de teléfono
+        <input placeholder="+34 600 00 00 00" id="numTelf" name="numTelf" type="number"/>
+      </label>
+      <small class="msg" id="msgEdad"></small>
+
+      <label>
+        Email
+        <input id="email" name="email" type="email" autocomplete="email" />
+      </label>
+      <small class="msg" id="msgEmail"></small>
+
+      <!-- SELECT DISCOTECAS -->
+      <label>
+        Discoteca
+        <select id="discoteca" name="discoteca">
+          <option value="">-- Selecciona una discoteca --</option>
+          <option value="copernico">Copérnico</option>
+          <option value="nuit">Nuit</option>
+          <option value="fabrik">Fabrik</option>
+          <option value="mon">Mon</option>
+          <option value="chapan">El Chapandaz</option>
+        </select>
+      </label>
+      <small class="msg" id="msgDiscoteca"></small>
+
+      <label>
+        Observaciones
+        <textarea id="obs" name="obs" rows="3"></textarea>
+      </label>
+
+      <section>
+        <label class="fila2">
+          <input id="acepto" type="checkbox" />
+          Acepto condiciones
+        </label>
+        <small class="msg" id="tipoEntrada"></small>
+      </section>
+
+      <div class="botonera">
+        <button id="btnEnviar" type="submit">Enviar</button>
+        <button id="btnReset" type="reset">Limpiar</button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <script src="Formulario.js"></script>
+</body>
+</html>
