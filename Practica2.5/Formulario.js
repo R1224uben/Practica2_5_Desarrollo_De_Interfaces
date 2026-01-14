@@ -44,6 +44,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 }
 
+      //Funcion Email
+      const inputEmail = document.getElementById("email");
+      const msgEmail = document.getElementById("msgEmail");
+
+      function validarEmail(){
+
+            msgEmail.classList.remove("msg-error", "msg-ok")
+            if(inputEmail.value === "" || !inputEmail.value.includes("@")){
+                  msgEmail.textContent = "El correo debe contener un arroba y no debe de estar en blanco ";
+                  msgEmail.classList.add("msg-error");
+                  return false
+            }else{
+                  msgEmail.textContent = "El correo es correcto";
+                  msgEmail.classList.add("msg-ok");
+
+                  return true
+            }
+      }
+      inputEmail.addEventListener("input", validarEmail);
+
+
+
 document
   .getElementById("numTelf")
   .addEventListener("input", validarTelefono);
@@ -64,6 +86,7 @@ document
     const discotecaOk = discoteca.value !== "";
     const telefonoOk = validarTelefono();
     const entradaOK = msgEntrada.textContent === "Tipo de entrada seleccionada";
+    const emailOk = validarEmail()
     
     // Mostrar errores en nombre si no es válido
     if (!nombreOk) {
@@ -85,7 +108,7 @@ document
       msgEntrada.textContent = "Selecciona un tipo de entrada";
     }
     
-    if (!nombreOk || !discotecaOk || !telefonoOk || !entradaOK) {
+    if (!nombreOk || !discotecaOk || !telefonoOk || !entradaOK || emailOk) {
       e.preventDefault();
       alert("Por favor, corrige los errores en el formulario antes de enviarlo.");
       return;
