@@ -1,6 +1,12 @@
+const tipoEntrada = document.querySelector(".radio-group");
+const msgEntrada = document.getElementById("tipoEntrada");
+
+tipoEntrada.addEventListener("change",() =>{
+      msgEntrada.textContent = "Tipo de entrada seleccionada";
+      msgEntrada.className = "msg msg-ok";
+});
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // Elementos 
   const form = document.getElementById("formMatricula");
   const nombre = document.getElementById("nombre");
@@ -21,6 +27,27 @@ document.addEventListener("DOMContentLoaded", () => {
     msgNombre.textContent = ok ? "Nombre válido" : "Solo letras y espacios, mínimo 3 caracteres";
   });
 
+  // Validar teléfono
+  function validarTelefono() {
+    const campoTelefono = document.getElementById("numTelf");
+    let campoMsg = document.getElementById("msgEdad");
+    let telefono = document.getElementById("numTelf").value;
+    if (telefono.length != 9) {
+        campoTelefono.className = "campo-error";
+        campoMsg.innerText = "El número de teléfono debe tener 9 dígitos. Y contener únicamente números.";
+        campoMsg.className = "msg-error";
+        return false;
+    } else {
+        campoTelefono.className = "campo-ok";
+        campoMsg.innerText = "";
+        return true;
+    }
+}
+
+document
+  .getElementById("numTelf")
+  .addEventListener("input", validarTelefono);
+
   // Validar discoteca 
   discoteca.addEventListener("change", () => {
     const ok = discoteca.value !== "";
@@ -35,17 +62,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const valorNombre = nombre.value.trim();
     const nombreOk = valorNombre && comprobar.test(valorNombre);
     const discotecaOk = discoteca.value !== "";
+    const telefonoOk = validarTelefono();
+    const entradaOK = msgEntrada.textContent === "Tipo de entrada seleccionada";
     
-    if (!nombreOk || !discotecaOk) {
-      e.preventDefault();
-      (nombreOk ? discoteca : nombre).focus();
+    // Mostrar errores en nombre si no es válido
+    if (!nombreOk) {
+      nombre.className = "campo-error";
+      msgNombre.className = "msg msg-error";
+      msgNombre.textContent = "Solo letras y espacios, mínimo 3 caracteres";
     }
+    
+    // Mostrar errores en discoteca si no es válido
+    if (!discotecaOk) {
+      discoteca.className = "campo-error";
+      msgDiscoteca.className = "msg msg-error";
+      msgDiscoteca.textContent = "Selecciona una discoteca";
+    }
+    
+    // Mostrar errores en entrada si no es válido
+    if (!entradaOK) {
+      msgEntrada.className = "msg msg-error";
+      msgEntrada.textContent = "Selecciona un tipo de entrada";
+    }
+    
+    if (!nombreOk || !discotecaOk || !telefonoOk || !entradaOK) {
+      e.preventDefault();
+      alert("Por favor, corrige los errores en el formulario antes de enviarlo.");
+      return;
+    }
+    
+    if (!navigator.onLine) {
+      e.preventDefault();
+      alert("Se necesita conexión a internet para enviar el formulario");
+      return;
+    }
+
+    alert("Formulario enviado con éxito");
   });
-});
-
-const tipoEntrada = document.querySelector(".radio-group");
-const msgEntrada = document.getElementById("tipoEntrada");
-
-tipoEntrada.addEventListener("change",() =>{
-      msgEntrada.textContent = "Tipo de entrada seleccionada";
 });
