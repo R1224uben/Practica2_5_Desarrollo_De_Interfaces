@@ -102,10 +102,10 @@ function transformarEnResumen() {
     'chapan': 'El Chapandaz'    // chapan → El Chapandaz
   };
 
-  // 4️⃣ GENERAR ID ÚNICO: "RES-" + timestamp actual (ej: RES-1705481234567)
+  // GENERAR ID ÚNICO: "RES-" + timestamp actual (ej: RES-1705481234567)
   const idReserva = 'RES-' + Date.now();
 
-  // 5️⃣ ⭐ MAGIA: BORRAR TODO el contenedor y crear HTML NUEVO
+  // BORRAR TODO el contenedor y crear HTML NUEVO
   contenedor.innerHTML = `
     <div class="resumen-container">
       <!-- HEADER CON TÍTULO DINÁMICO -->
