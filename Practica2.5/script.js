@@ -8,7 +8,7 @@ tipoEntrada.addEventListener("change", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Elementos 
+  // Elementos
   const contenedor = document.getElementById("contenedorPrincipal");
   const form = document.getElementById("formMatricula");
   const nombre = document.getElementById("nombre");
