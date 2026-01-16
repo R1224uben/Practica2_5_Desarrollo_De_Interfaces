@@ -34,9 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const campoTelefono = document.getElementById("numTelf");
     let campoMsg = document.getElementById("msgEdad");
     let telefono = document.getElementById("numTelf").value;
-    if (telefono.length != 9) {
+    let empiezaConX = telefono.startsWith("6") || telefono.startsWith("7") || telefono.startsWith("8");
+    if (telefono.length != 9 || !empiezaConX) {
         campoTelefono.className = "campo-error";
-        campoMsg.innerText = "El número de teléfono debe tener 9 dígitos. Y contener únicamente números.";
+        campoMsg.innerText = "El número de teléfono debe tener 9 dígitos. Y contener únicamente números. No se permiten números fijos (debe empezar por 6, 7 u 8).";
         campoMsg.className = "msg-error";
         return false;
     } else {
