@@ -1,0 +1,12 @@
+Funcionalidades Principales
+Formulario interactivo con 6 campos: nombre, teléfono, email, discoteca, observaciones y tipo de entrada
+
+Validación en tiempo real para todos los campos con feedback visual (verde/rojo)
+
+4 tipos de entrada con precios: 1 copa (15€), 2 copas (20€), Botella VIP (100€), Premium VIP (150€)
+
+Generación automática de resumen con ID único, fecha/hora 
+
+Discotecas incluidas: Copérnico, Nuit, Fabrik, Mon, El Chapandaz
+
+Funciones adicionales: Imprimir ticket, nueva reserva
