@@ -1,11 +1,53 @@
 
-const tipoEntrada = document.querySelector(".radio-group");
+// ELEMENTOS
+const radioGroup = document.querySelector(".radio-group");
 const msgEntrada = document.getElementById("tipoEntrada");
 
-tipoEntrada.addEventListener("change", () => {
+// BOTONES PARA AÑADIR ENTRADAS
+document.getElementById("addNormal").onclick = () => añadirEntrada("3 copas", 30);
+document.getElementById("addVip").onclick = () => añadirEntrada("VIP Especial", 80);
+
+// BOTÓN PARA ELIMINAR LA ÚLTIMA ENTRADA
+document.getElementById("removeEntrada").onclick = () => {
+  const labels = radioGroup.querySelectorAll("label.radio-card");
+  if (labels.length === 0) {
+    msgEntrada.textContent = "No hay entradas para eliminar";
+    msgEntrada.className = "msg msg-error";
+    return;
+  }
+
+  labels[labels.length - 1].remove();
+  msgEntrada.textContent = "Última entrada eliminada";
+  msgEntrada.className = "msg msg-ok";
+};
+
+// FUNCIÓN PARA AÑADIR ENTRADAS DINÁMICAMENTE
+function añadirEntrada(nombre, precio) {
+  const label = document.createElement("label");
+  label.className = "radio-card";
+
+  const input = document.createElement("input");
+  input.type = "radio";
+  input.name = "entrada";
+  input.value = precio;
+
+  const span = document.createElement("span");
+  span.innerHTML = `<strong>${nombre}</strong><small>-- ${precio}€</small>`;
+
+  label.appendChild(input);
+  label.appendChild(span);
+  radioGroup.appendChild(label);
+
+  msgEntrada.textContent = `Entrada "${nombre}" añadida`;
+  msgEntrada.className = "msg msg-ok";
+}
+
+// OPCIONAL: Mensaje cuando se selecciona un radio
+radioGroup.addEventListener("change", () => {
   msgEntrada.textContent = "Tipo de entrada seleccionada";
   msgEntrada.className = "msg msg-ok";
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // Elementos
