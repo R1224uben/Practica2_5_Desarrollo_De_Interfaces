@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -52,27 +53,35 @@
         </label>
 
         <section class="radio-section">    
-          <fieldset class="radio-group">
-            <legend>Tipo de entrada</legend>
-            <label class="radio-card">
-              <input type="radio" name="entrada" value="15">
-              <span><strong>1 copa</strong><small>-- 15€</small></span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="entrada" value="20">
-              <span><strong>2 copas</strong><small>-- 20€</small></span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="entrada" value="100">
-              <span><strong>Botella + VIP</strong><small>-- 100€</small></span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="entrada" value="150">
-              <span><strong>Botella Premium + VIP</strong><small>-- 150€</small></span>
-            </label>
-          </fieldset>
-          <small class="msg" id="tipoEntrada"></small>
-        </section>
+  <fieldset class="radio-group">
+    <legend>Tipo de entrada</legend>
+    <label class="radio-card">
+      <input type="radio" name="entrada" value="15">
+      <span><strong>1 copa</strong><small>-- 15€</small></span>
+    </label>
+    <label class="radio-card">
+      <input type="radio" name="entrada" value="20">
+      <span><strong>2 copas</strong><small>-- 20€</small></span>
+    </label>
+    <label class="radio-card">
+      <input type="radio" name="entrada" value="100">
+      <span><strong>Botella + VIP</strong><small>-- 100€</small></span>
+    </label>
+    <label class="radio-card">
+      <input type="radio" name="entrada" value="150">
+      <span><strong>Botella Premium + VIP</strong><small>-- 150€</small></span>
+    </label>
+  </fieldset>
+  <small class="msg" id="tipoEntrada"></small>
+
+  <!-- BOTONES PARA AÑADIR/ELIMINAR ENTRADAS -->
+  <div class="botones-entrada" style="margin-top:10px;">
+    <button type="button" id="addNormal">Añadir 3 copas - 30€</button>
+    <button type="button" id="addVip">Añadir VIP Especial - 80€</button>
+    <button type="button" id="removeEntrada">Eliminar última entrada</button>
+  </div>
+</section>
+
 
         <div class="botonera">
           <button id="btnEnviar" type="submit">Enviar</button>
