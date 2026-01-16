@@ -182,7 +182,7 @@ function transformarEnResumen() {
       <div class="resumen-footer">
         <p style="margin-bottom:20px;opacity:0.9;">¡Disfruta tu noche! Presenta esta página</p>
         <div class="botones-resumen">
-          <!-- ⭐ onclick="nuevaReserva()" → función global abajo -->
+          <!-- onclick="nuevaReserva()" → función global abajo -->
           <button class="btn-resumen btn-nuevo" onclick="nuevaReserva()">Nueva reserva</button>
           <!-- window.print() → imprime página actual -->
           <button class="btn-resumen btn-imprimir" onclick="window.print()">Imprimir</button>
