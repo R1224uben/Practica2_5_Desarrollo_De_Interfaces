@@ -1,0 +1,263 @@
+:root {
+     font-family: system-ui, Arial, sans-serif;
+    }
+body { 
+    margin: 0; 
+    background: #f6f7fb; 
+    padding: 24px; 
+    }
+.card { 
+    max-width: 760px; 
+    margin: 0 auto; 
+    background: white;
+     padding: 18px; 
+     border-radius: 14px;
+      border: 1px solid #e6e6ee; 
+    }
+label { 
+    display: block;
+     margin: 12px 0; 
+    }
+input, select, textarea, button { 
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px; 
+    border: 1px solid #d7d7e6; 
+    box-sizing: border-box; 
+    }
+
+.fila { 
+    display: inline-block;
+    align-items: normal; 
+    justify-content: center; 
+    gap: 10px; 
+    }
+.h2 { 
+    margin-top: 18px; 
+    }
+
+.msg { 
+    display: inline-block ; 
+    min-height: 18px; 
+    font-size: 12px; 
+    }
+.campo-error { 
+    border-color: #ff6b6b; 
+    }
+.campo-ok { 
+    border-color: #33c481; 
+    }
+.msg-error { 
+    color: #d62323; 
+    }
+.msg-ok { 
+    color: #0c7a3c; 
+    }
+
+
+.modo-resumen {
+  background: #f8f9fa !important;  /* Fondo neutro */
+  padding: 15px;
+}
+
+.resumen-container {
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  overflow: hidden;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.resumen-header {
+  background: #f8f9fa;  /* Gris claro*/
+  padding: 30px;
+  text-align: center;
+}
+
+.resumen-header h1 {
+  font-size: 1.8em;
+  color: #333;  /* Negro suave */
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.reserva-id {
+  background: #e9ecef;
+  color: #666;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9em;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.resumen-content {
+  padding: 40px;
+}
+
+.resumen-section {
+  margin-bottom: 35px;
+}
+
+.resumen-section h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+  border-bottom: 3px solid #e9ecef;
+  padding-bottom: 8px;
+}
+
+
+.resumen-section.premium {
+  text-align: center;
+  background: #f8f9fa;  /* Gris claro */
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px 0;
+}
+
+.resumen-section.premium h3 {
+  border: none;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.info-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  font-size: 0.85em;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #333;
+}
+
+
+.precio-final {
+  font-size: 3.5em;
+  font-weight: 900;
+  color: #333;  /* Negro simple */
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.observaciones {
+  background: #e9ecef;
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.resumen-footer {
+  background: #f8f9fa;
+  padding: 30px;
+  text-align: center;
+}
+
+.resumen-footer p {
+  margin-bottom: 25px;
+  color: #666;
+  font-size: 1.1em;
+}
+
+/* BOTONES RESUMEN - GRIS NEUTRO */
+.botones-resumen {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-resumen {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 160px;
+}
+
+.btn-nuevo {
+  background: #6b7280;  /* Gris */
+  color: white;
+}
+
+.btn-nuevo:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+}
+
+.btn-imprimir {
+  background: #374151;  /* Gris oscuro */
+  color: white;
+}
+
+.btn-imprimir:hover {
+  background: #1f2937;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  .card, .resumen-container {
+    padding: 25px;
+    border-radius: 20px;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .resumen-header h1 {
+    font-size: 1.5em;
+  }
+  
+  .precio-final {
+    font-size: 2.8em;
+  }
+  
+  .botones-resumen {
+    flex-direction: column;
+  }
+  
+  .btn-resumen {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .resumen-content {
+    padding: 20px;
+  }
+  
+  .resumen-section.premium {
+    padding: 20px;
+  }
+}
