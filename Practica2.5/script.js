@@ -75,12 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
     msgDiscoteca.textContent = ok ? "Discoteca válida" : "Selecciona una discoteca";
   });
 
-// TRANSFORMACIÓN A RESUMEN - COMENTADA LÍNEA POR LÍNEA
+// TRANSFORMACIÓN A RESUMEN - 
 function transformarEnResumen() {
-  // 1️ BUSCAR RADIO SELECCIONADO (o null si no hay ninguno)
+  // BUSCAR RADIO SELECCIONADO (o null si no hay ninguno)
   const entradaSeleccionada = document.querySelector('input[name="entrada"]:checked');
   
-  // 2️ RECOGER TODOS LOS DATOS DEL FORMULARIO en un objeto
+  // RECOGER TODOS LOS DATOS DEL FORMULARIO en un objeto
   const datos = {
     nombre: nombre.value.trim(),                    // Nombre sin espacios extra
     telefono: document.getElementById("numTelf").value.trim(),  // Teléfono del input
@@ -93,7 +93,7 @@ function transformarEnResumen() {
     tipoEntrada: entradaSeleccionada?.nextElementSibling.textContent?.trim() || ""
   };
 
-  // 3️ DICCIONARIO: Convierte códigos → Nombres bonitos de discotecas
+  // DICCIONARIO: Convierte códigos → Nombres bonitos de discotecas
   const nombresDiscotecas = {
     'copernico': 'Copérnico',    // copernico → Copérnico
     'nuit': 'Nuit',             // nuit → Nuit  
